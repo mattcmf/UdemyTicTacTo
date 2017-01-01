@@ -49,8 +49,6 @@ public class MainActivity extends AppCompatActivity {
 
     //TODO: Need to update layout to use grid view and align counters using padding
 
-    //TODO: Need to set gridview background to game board
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

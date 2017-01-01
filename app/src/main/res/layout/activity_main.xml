@@ -14,262 +14,161 @@
     <GridLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
         android:columnCount="3"
         android:rowCount="3"
-        android:layout_alignParentEnd="true"
-        android:background="@drawable/grid">
+        android:background="@drawable/grid"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/planetrick"
+            android:id="@+id/imageView"
             android:adjustViewBounds="true"
             android:maxWidth="110dp"
             android:maxHeight="110dp"
             android:scaleType="fitCenter"
-            android:id="@+id/gridLeftBottom"
-            android:layout_marginStart="18dp"
-            android:layout_weight="1"
-            android:layout_marginBottom="58dp"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentStart="true"
-
-            android:alpha="0"
-            android:onClick="PlaceCounter" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/planetrick"
-            android:id="@+id/gridLeftMiddle"
-            android:adjustViewBounds="true"
-            android:maxWidth="110dp"
-            android:maxHeight="110dp"
-            android:scaleType="fitCenter"
-            android:layout_centerVertical="true"
-            android:layout_alignStart="@+id/gridLeftBottom"
-            android:alpha="0"
-            android:onClick="PlaceCounter"/>
+            android:alpha="1"
+            android:layout_row="0"
+            android:layout_column="0"
+            android:onClick="PlaceCounter"
+            android:cropToPadding="false"
+            android:layout_marginLeft="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="15dp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/planetrick"
-            android:id="@+id/gridLeftTop"
+            android:id="@+id/imageView3"
             android:adjustViewBounds="true"
             android:maxWidth="110dp"
             android:maxHeight="110dp"
             android:scaleType="fitCenter"
-            android:layout_marginTop="63dp"
-            android:layout_alignParentTop="true"
-            android:layout_alignStart="@+id/gridLeftMiddle"
-            android:alpha="0"
-            android:onClick="PlaceCounter"/>
+            android:alpha="1"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:onClick="PlaceCounter"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="20dp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/planetrick"
-            android:id="@+id/gridMiddleTop"
+            android:id="@+id/imageView4"
             android:adjustViewBounds="true"
             android:maxWidth="110dp"
             android:maxHeight="110dp"
             android:scaleType="fitCenter"
-            android:layout_alignTop="@+id/gridLeftTop"
-            android:layout_centerHorizontal="true"
-            android:alpha="0"
-            android:onClick="PlaceCounter"/>
+            android:alpha="1"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:onClick="PlaceCounter"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="10dp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/planetrick"
-            android:id="@+id/gridMiddleMiddle"
+            android:id="@+id/imageView9"
             android:adjustViewBounds="true"
             android:maxWidth="110dp"
             android:maxHeight="110dp"
             android:scaleType="fitCenter"
-            android:layout_centerVertical="true"
-            android:layout_alignStart="@+id/gridMiddleTop"
-            android:alpha="0"
-            android:onClick="PlaceCounter"/>
+            android:alpha="1"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:onClick="PlaceCounter"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="20dp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/planetrick"
-            android:id="@+id/gridMiddleBottom"
+            android:id="@+id/imageView7"
             android:adjustViewBounds="true"
             android:maxWidth="110dp"
             android:maxHeight="110dp"
             android:scaleType="fitCenter"
-            android:layout_alignBottom="@+id/grumpyCatLeftBottom"
-            android:layout_centerHorizontal="true"
-            android:alpha="0"
-            android:onClick="PlaceCounter"/>
+            android:alpha="1"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:onClick="PlaceCounter"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="10dp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/planetrick"
-            android:id="@+id/gridRightTop"
+            android:id="@+id/imageView8"
             android:adjustViewBounds="true"
             android:maxWidth="110dp"
             android:maxHeight="110dp"
             android:scaleType="fitCenter"
-            android:layout_alignTop="@+id/gridMiddleTop"
-            android:layout_alignParentEnd="true"
-            android:layout_marginEnd="15dp"
-            android:alpha="0"
-            android:onClick="PlaceCounter"/>
+            android:alpha="1"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:onClick="PlaceCounter"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="40dp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/planetrick"
-            android:id="@+id/gridRightMiddle"
+            android:id="@+id/imageView6"
             android:adjustViewBounds="true"
             android:maxWidth="110dp"
             android:maxHeight="110dp"
             android:scaleType="fitCenter"
-            android:layout_centerVertical="true"
-            android:layout_alignStart="@+id/gridRightTop"
-            android:alpha="0"
-            android:onClick="PlaceCounter"/>
+            android:alpha="1"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:onClick="PlaceCounter"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="20dp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:srcCompat="@drawable/planetrick"
-            android:id="@+id/gridRightBottom"
+            android:id="@+id/imageView5"
             android:adjustViewBounds="true"
             android:maxWidth="110dp"
             android:maxHeight="110dp"
             android:scaleType="fitCenter"
-            android:layout_alignTop="@+id/gridMiddleBottom"
-            android:layout_alignStart="@+id/gridRightMiddle"
-            android:alpha="0"
-            android:onClick="PlaceCounter"/>
+            android:alpha="1"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:onClick="PlaceCounter"
+            android:layout_marginTop="50dp"
+            android:layout_marginLeft="40dp" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:srcCompat="@drawable/grumpycat"
+            app:srcCompat="@drawable/planetrick"
+            android:id="@+id/imageView2"
             android:adjustViewBounds="true"
             android:maxWidth="110dp"
             android:maxHeight="110dp"
             android:scaleType="fitCenter"
-            android:id="@+id/grumpyCatLeftMiddle"
-            android:layout_weight="1"
-            android:layout_alignTop="@+id/gridLeftMiddle"
-            android:layout_alignParentStart="true" />
+            android:alpha="1"
+            android:layout_row="0"
+            android:layout_column="1"
+            android:onClick="PlaceCounter"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginTop="15dp" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/grumpycat"
-            android:adjustViewBounds="true"
-            android:maxWidth="110dp"
-            android:maxHeight="110dp"
-            android:scaleType="fitCenter"
-            android:id="@+id/grumpyCatLeftTop"
-            android:layout_weight="1"
-            android:layout_alignBottom="@+id/gridLeftTop"
-            android:layout_alignParentStart="true" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/grumpycat"
-            android:adjustViewBounds="true"
-            android:maxWidth="110dp"
-            android:maxHeight="110dp"
-            android:scaleType="fitCenter"
-            android:id="@+id/grumpyCatMiddleTop"
-            android:layout_weight="1"
-            android:layout_alignTop="@+id/gridMiddleTop"
-            android:layout_centerHorizontal="true" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/grumpycat"
-            android:adjustViewBounds="true"
-            android:maxWidth="110dp"
-            android:maxHeight="110dp"
-            android:scaleType="fitCenter"
-            android:id="@+id/grumpyCatMiddleMiddle"
-            android:layout_weight="1"
-            android:layout_alignTop="@+id/gridMiddleMiddle"
-            android:layout_alignStart="@+id/grumpyCatMiddleTop" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/grumpycat"
-            android:adjustViewBounds="true"
-            android:maxWidth="110dp"
-            android:maxHeight="110dp"
-            android:scaleType="fitCenter"
-            android:id="@+id/grumpyCatMiddleBottom"
-            android:layout_weight="1"
-            android:layout_alignTop="@+id/gridMiddleBottom"
-            android:layout_alignStart="@+id/grumpyCatMiddleMiddle"
-            />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/grumpycat"
-            android:adjustViewBounds="true"
-            android:maxWidth="110dp"
-            android:maxHeight="110dp"
-            android:scaleType="fitCenter"
-            android:id="@+id/grumpyCatRightTop"
-            android:layout_weight="1"
-            android:layout_alignBottom="@+id/gridRightTop"
-            android:layout_alignParentEnd="true" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/grumpycat"
-            android:adjustViewBounds="true"
-            android:maxWidth="110dp"
-            android:maxHeight="110dp"
-            android:scaleType="fitCenter"
-            android:id="@+id/grumpyCatRightMiddle"
-            android:layout_weight="1"
-            android:layout_alignTop="@+id/gridRightMiddle"
-            android:layout_alignParentEnd="true" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/grumpycat"
-            android:adjustViewBounds="true"
-            android:maxWidth="110dp"
-            android:maxHeight="110dp"
-            android:scaleType="fitCenter"
-            android:id="@+id/grumpyCatRightBottom"
-            android:layout_weight="1"
-            android:layout_alignTop="@+id/gridRightBottom"
-            android:layout_alignParentEnd="true" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/grumpycat"
-            android:adjustViewBounds="true"
-            android:maxWidth="110dp"
-            android:maxHeight="110dp"
-            android:scaleType="fitCenter"
-            android:id="@+id/grumpyCatLeftBottom"
-            android:layout_weight="1"
-            android:layout_alignBottom="@+id/gridLeftBottom"
-            android:layout_alignParentStart="true"
-            />
     </GridLayout>
 
 </RelativeLayout>

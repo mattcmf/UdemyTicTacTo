@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="demos.udemytictacto.MainActivity">
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/planetrick"
+        android:adjustViewBounds="true"
+        android:maxWidth="110dp"
+        android:maxHeight="110dp"
+        android:scaleType="fitCenter"
+        android:id="@+id/gridLeftBottom"
+        android:layout_marginStart="18dp"
+        android:layout_weight="1"
+        android:layout_marginBottom="58dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+
+        android:alpha="0"
+        android:onClick="PlaceCounter" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/grid"
+        android:id="@+id/imgGrid"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/grumpycat"
+        android:adjustViewBounds="true"
+        android:maxWidth="110dp"
+        android:maxHeight="110dp"
+        android:scaleType="fitCenter"
+        android:id="@+id/grumpyCatLeftBottom"
+        android:layout_weight="1"
+        android:layout_alignBottom="@+id/gridLeftBottom"
+        android:layout_alignParentStart="true"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/planetrick"
+        android:id="@+id/gridLeftMiddle"
+        android:adjustViewBounds="true"
+        android:maxWidth="110dp"
+        android:maxHeight="110dp"
+        android:scaleType="fitCenter"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/gridLeftBottom"
+        android:alpha="0"
+        android:onClick="PlaceCounter"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/planetrick"
+        android:id="@+id/gridLeftTop"
+        android:adjustViewBounds="true"
+        android:maxWidth="110dp"
+        android:maxHeight="110dp"
+        android:scaleType="fitCenter"
+        android:layout_marginTop="63dp"
+        android:layout_alignParentTop="true"
+        android:layout_alignStart="@+id/gridLeftMiddle"
+        android:alpha="0"
+        android:onClick="PlaceCounter"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/planetrick"
+        android:id="@+id/gridMiddleTop"
+        android:adjustViewBounds="true"
+        android:maxWidth="110dp"
+        android:maxHeight="110dp"
+        android:scaleType="fitCenter"
+        android:layout_alignTop="@+id/gridLeftTop"
+        android:layout_centerHorizontal="true"
+        android:alpha="0"
+        android:onClick="PlaceCounter"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/planetrick"
+        android:id="@+id/gridMiddleMiddle"
+        android:adjustViewBounds="true"
+        android:maxWidth="110dp"
+        android:maxHeight="110dp"
+        android:scaleType="fitCenter"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/gridMiddleTop"
+        android:alpha="0"
+        android:onClick="PlaceCounter"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/planetrick"
+        android:id="@+id/gridMiddleBottom"
+        android:adjustViewBounds="true"
+        android:maxWidth="110dp"
+        android:maxHeight="110dp"
+        android:scaleType="fitCenter"
+        android:layout_alignBottom="@+id/grumpyCatLeftBottom"
+        android:layout_centerHorizontal="true"
+        android:alpha="0"
+        android:onClick="PlaceCounter"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/planetrick"
+        android:id="@+id/gridRightTop"
+        android:adjustViewBounds="true"
+        android:maxWidth="110dp"
+        android:maxHeight="110dp"
+        android:scaleType="fitCenter"
+        android:layout_alignTop="@+id/gridMiddleTop"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="15dp"
+        android:alpha="0"
+        android:onClick="PlaceCounter"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/planetrick"
+        android:id="@+id/gridRightMiddle"
+        android:adjustViewBounds="true"
+        android:maxWidth="110dp"
+        android:maxHeight="110dp"
+        android:scaleType="fitCenter"
+        android:layout_centerVertical="true"
+        android:layout_alignStart="@+id/gridRightTop"
+        android:alpha="0"
+        android:onClick="PlaceCounter"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/planetrick"
+        android:id="@+id/gridRightBottom"
+        android:adjustViewBounds="true"
+        android:maxWidth="110dp"
+        android:maxHeight="110dp"
+        android:scaleType="fitCenter"
+        android:layout_alignTop="@+id/gridMiddleBottom"
+        android:layout_alignStart="@+id/gridRightMiddle"
+        android:alpha="0"
+        android:onClick="PlaceCounter"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/grumpycat"
+        android:adjustViewBounds="true"
+        android:maxWidth="110dp"
+        android:maxHeight="110dp"
+        android:scaleType="fitCenter"
+        android:id="@+id/grumpyCatLeftMiddle"
+        android:layout_weight="1"
+        android:layout_alignTop="@+id/gridLeftMiddle"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/grumpycat"
+        android:adjustViewBounds="true"
+        android:maxWidth="110dp"
+        android:maxHeight="110dp"
+        android:scaleType="fitCenter"
+        android:id="@+id/grumpyCatLeftTop"
+        android:layout_weight="1"
+        android:layout_alignBottom="@+id/gridLeftTop"
+        android:layout_alignParentStart="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/grumpycat"
+        android:adjustViewBounds="true"
+        android:maxWidth="110dp"
+        android:maxHeight="110dp"
+        android:scaleType="fitCenter"
+        android:id="@+id/grumpyCatMiddleTop"
+        android:layout_weight="1"
+        android:layout_alignTop="@+id/gridMiddleTop"
+        android:layout_centerHorizontal="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/grumpycat"
+        android:adjustViewBounds="true"
+        android:maxWidth="110dp"
+        android:maxHeight="110dp"
+        android:scaleType="fitCenter"
+        android:id="@+id/grumpyCatMiddleMiddle"
+        android:layout_weight="1"
+        android:layout_alignTop="@+id/gridMiddleMiddle"
+        android:layout_alignStart="@+id/grumpyCatMiddleTop" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/grumpycat"
+        android:adjustViewBounds="true"
+        android:maxWidth="110dp"
+        android:maxHeight="110dp"
+        android:scaleType="fitCenter"
+        android:id="@+id/grumpyCatMiddleBottom"
+        android:layout_weight="1"
+        android:layout_alignTop="@+id/gridMiddleBottom"
+        android:layout_alignStart="@+id/grumpyCatMiddleMiddle"
+        />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/grumpycat"
+        android:adjustViewBounds="true"
+        android:maxWidth="110dp"
+        android:maxHeight="110dp"
+        android:scaleType="fitCenter"
+        android:id="@+id/grumpyCatRightTop"
+        android:layout_weight="1"
+        android:layout_alignBottom="@+id/gridRightTop"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/grumpycat"
+        android:adjustViewBounds="true"
+        android:maxWidth="110dp"
+        android:maxHeight="110dp"
+        android:scaleType="fitCenter"
+        android:id="@+id/grumpyCatRightMiddle"
+        android:layout_weight="1"
+        android:layout_alignTop="@+id/gridRightMiddle"
+        android:layout_alignParentEnd="true" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:srcCompat="@drawable/grumpycat"
+        android:adjustViewBounds="true"
+        android:maxWidth="110dp"
+        android:maxHeight="110dp"
+        android:scaleType="fitCenter"
+        android:id="@+id/grumpyCatRightBottom"
+        android:layout_weight="1"
+        android:layout_alignTop="@+id/gridRightBottom"
+        android:layout_alignParentEnd="true" />
+
+</RelativeLayout>

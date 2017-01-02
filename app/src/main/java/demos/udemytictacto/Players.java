@@ -9,7 +9,7 @@ import java.util.ArrayList;
  */
 
 public class Players  extends AppCompatActivity {
-    ArrayList counterPositions = new ArrayList();
+    ArrayList<Integer> counterPositions = new ArrayList();
     String PlayerName = "";
 }
 

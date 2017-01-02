@@ -72,6 +72,14 @@ public class MainActivity extends AppCompatActivity {
         if (grumpyStats != "")  Toast.makeText(getApplicationContext(), grumpyStats, Toast.LENGTH_SHORT).show();
 
         gameActive = game.getGameActive();
+
+        if (!gameActive) showRestartView();
+    }
+
+    private void showRestartView() {
+        View view= findViewById(R.id.winningKitty);
+        view.setVisibility(View.VISIBLE);
+        view.bringToFront();
     }
 
     private void ChangePlayerTurn() {

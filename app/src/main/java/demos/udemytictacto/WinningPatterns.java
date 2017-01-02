@@ -4,16 +4,16 @@ import java.util.ArrayList;
 
 class WinningPatterns {
 
-    private static ArrayList<int[]> GetWinningPatterns = new ArrayList<int[]>();
+    private static ArrayList<ArrayList<Integer>> GetWinningPatterns = new ArrayList();
 
-    private static int[] TopRow = {1,2,3};
-    private static int[] MiddleRow = {4,5,6};
-    private static int[] BottomRow = {7,8,9};
-    private static int[] LeftColumn = {1,4,7};
-    private static int[] MiddleColumn = {2,5,8};
-    private static int[] RightColumn = {3,6,9};
-    private static int[] TopLeftToBottomRight = {1,5,9};
-    private static int[] TopRightToBottomLeft = {3,5,7};
+    private static  ArrayList<Integer> TopRow = new ArrayList<Integer>() {{ add(1); add(2); add(3); }};
+    private static  ArrayList<Integer> MiddleRow = new ArrayList<Integer>() {{ add(4); add(5); add(6); }};
+    private static  ArrayList<Integer> BottomRow = new ArrayList<Integer>() {{add(7); add(8); add(9); }};
+    private static  ArrayList<Integer> LeftColumn = new ArrayList<Integer>(){{ add(1); add(4); add(7); }};
+    private static  ArrayList<Integer> MiddleColumn = new ArrayList<Integer>() {{ add(2); add(5); add(8); }};
+    private static  ArrayList<Integer> RightColumn = new ArrayList<Integer>() {{ add(3); add(6); add(9); }};
+    private static  ArrayList<Integer> TopLeftToBottomRight = new ArrayList<Integer>() {{add(1); add(5); add(9); }};
+    private static  ArrayList<Integer> TopRightToBottomLeft = new ArrayList<Integer>() {{add(3); add(5); add(7); }};
 
     //TODO: Need draw logic
 
@@ -28,7 +28,7 @@ class WinningPatterns {
         GetWinningPatterns.add(TopRightToBottomLeft);
     }
 
-    public static ArrayList<int[]> getGetWinningPatterns(){
+    public static ArrayList<ArrayList<Integer>> getGetWinningPatterns(){
         return GetWinningPatterns;
     }
 }

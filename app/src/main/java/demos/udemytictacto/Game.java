@@ -1,6 +1,6 @@
 package demos.udemytictacto;
 
-import java.util.Arrays;
+import java.util.ArrayList;
 
 /**
  * Created by matthewframpton on 28/12/2016.
@@ -17,8 +17,8 @@ public class Game {
     //TODO: Need to set visibility from invisibile to visible
     //TODO: Loop through all images and set position back to blah blah
     String CheckForWinner(Players player) {
-        for (int[] pattern : WinningPatterns.getGetWinningPatterns()){
-            if (player.counterPositions.containsAll(Arrays.asList(pattern))){
+        for (ArrayList<Integer> pattern : WinningPatterns.getGetWinningPatterns()){
+            if (player.counterPositions.containsAll(pattern)){
                 return player.PlayerName.toUpperCase() + " has won the game!";
             }
     }

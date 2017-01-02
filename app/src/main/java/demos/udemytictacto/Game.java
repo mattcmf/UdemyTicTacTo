@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class Game {
 
     private String playersTurn;
+    private boolean GameActive = true;
 
     public void start() {
         playersTurn = "grumpyCat";
@@ -19,10 +20,16 @@ public class Game {
     String CheckForWinner(Players player) {
         for (ArrayList<Integer> pattern : WinningPatterns.getGetWinningPatterns()){
             if (player.counterPositions.containsAll(pattern)){
+                this.GameActive = false;
                 return player.PlayerName.toUpperCase() + " has won the game!";
             }
     }
         return "";
     }
+
+    public boolean getGameActive(){
+        return this.GameActive;
+    }
+
 }
 

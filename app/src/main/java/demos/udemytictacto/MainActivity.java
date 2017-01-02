@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     String playersTurn;
     Players kitten;
     Players grumpy;
-    boolean clickedFlagGridLeftTop = false;
+    boolean gameActive;
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -29,12 +29,11 @@ public class MainActivity extends AppCompatActivity {
      */
     private GoogleApiClient client;
 
-    //TODO: Need to update layout to use grid view and align counters using padding
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        gameActive = true;
         WinningPatterns.Setup();
         game = new Game();
         game.start();
@@ -53,8 +52,7 @@ public class MainActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void PlaceCounter(View view) {
-        if (!clickedFlagGridLeftTop) DropCounter((ImageView) view);
-                //clickedFlagGridLeftTop = true;
+        if (gameActive) DropCounter((ImageView) view);
     }
 
     private void DropCounter(ImageView view) {
@@ -72,6 +70,8 @@ public class MainActivity extends AppCompatActivity {
 
         if (kittenStats != "")  Toast.makeText(getApplicationContext(), kittenStats, Toast.LENGTH_SHORT).show();
         if (grumpyStats != "")  Toast.makeText(getApplicationContext(), grumpyStats, Toast.LENGTH_SHORT).show();
+
+        gameActive = game.getGameActive();
     }
 
     private void ChangePlayerTurn() {
@@ -107,8 +107,7 @@ public class MainActivity extends AppCompatActivity {
      */
     public Action getIndexApiAction() {
         Thing object = new Thing.Builder()
-                .setName("Main Page") // TODO: Define a title for the content shown.
-                // TODO: Make sure this auto-generated URL is correct.
+                .setName("Animal Connect3")
                 .setUrl(Uri.parse("http://[ENTER-YOUR-URL-HERE]"))
                 .build();
         return new Action.Builder(Action.TYPE_VIEW)
@@ -116,6 +115,8 @@ public class MainActivity extends AppCompatActivity {
                 .setActionStatus(Action.STATUS_TYPE_COMPLETED)
                 .build();
     }
+
+
 
     @Override
     public void onStart() {

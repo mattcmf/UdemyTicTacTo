@@ -12,162 +12,133 @@
     tools:context="demos.udemytictacto.MainActivity">
 
     <GridLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:columnCount="3"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:stretchMode="columnWidth"
+        android:layout_gravity="fill_horizontal"
+        android:columnWidth="100dp"
+        android:gravity="center_horizontal"
+    android:columnCount="3"
         android:rowCount="3"
         android:background="@drawable/grid"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true">
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/planetrick"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:id="@+id/imageView4"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:onClick="PlaceCounter"
+            android:tag = "4"
+            android:layout_marginBottom="50dp"
+            android:layout_marginTop="90dp" />
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:id="@+id/imageView3"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:onClick="PlaceCounter"
+            android:tag = "3"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="20dp" />
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:id="@+id/imageView6"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:onClick="PlaceCounter"
+            android:tag = "6"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="90dp" />
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:id="@+id/imageView8"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:onClick="PlaceCounter"
+            android:tag = "8"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="30dp" />
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:id="@+id/imageView"
             android:adjustViewBounds="true"
-            android:maxWidth="110dp"
-            android:maxHeight="110dp"
             android:scaleType="fitCenter"
-            android:alpha="1"
             android:layout_row="0"
             android:layout_column="0"
             android:onClick="PlaceCounter"
             android:cropToPadding="false"
-            android:layout_marginLeft="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginTop="15dp" />
+            android:tag = "1"
+            android:layout_marginTop="20dp" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/planetrick"
-            android:id="@+id/imageView3"
-            android:adjustViewBounds="true"
-            android:maxWidth="110dp"
-            android:maxHeight="110dp"
-            android:scaleType="fitCenter"
-            android:alpha="1"
-            android:layout_row="0"
-            android:layout_column="2"
-            android:onClick="PlaceCounter"
-            android:layout_marginTop="15dp"
-            android:layout_marginLeft="20dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/planetrick"
-            android:id="@+id/imageView4"
-            android:adjustViewBounds="true"
-            android:maxWidth="110dp"
-            android:maxHeight="110dp"
-            android:scaleType="fitCenter"
-            android:alpha="1"
-            android:layout_row="1"
-            android:layout_column="0"
-            android:onClick="PlaceCounter"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="10dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/planetrick"
-            android:id="@+id/imageView9"
-            android:adjustViewBounds="true"
-            android:maxWidth="110dp"
-            android:maxHeight="110dp"
-            android:scaleType="fitCenter"
-            android:alpha="1"
-            android:layout_row="2"
-            android:layout_column="2"
-            android:onClick="PlaceCounter"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="20dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/planetrick"
-            android:id="@+id/imageView7"
-            android:adjustViewBounds="true"
-            android:maxWidth="110dp"
-            android:maxHeight="110dp"
-            android:scaleType="fitCenter"
-            android:alpha="1"
-            android:layout_row="2"
-            android:layout_column="0"
-            android:onClick="PlaceCounter"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="10dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/planetrick"
-            android:id="@+id/imageView8"
-            android:adjustViewBounds="true"
-            android:maxWidth="110dp"
-            android:maxHeight="110dp"
-            android:scaleType="fitCenter"
-            android:alpha="1"
-            android:layout_row="2"
-            android:layout_column="1"
-            android:onClick="PlaceCounter"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="40dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/planetrick"
-            android:id="@+id/imageView6"
-            android:adjustViewBounds="true"
-            android:maxWidth="110dp"
-            android:maxHeight="110dp"
-            android:scaleType="fitCenter"
-            android:alpha="1"
-            android:layout_row="1"
-            android:layout_column="2"
-            android:onClick="PlaceCounter"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="20dp" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/planetrick"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:id="@+id/imageView5"
             android:adjustViewBounds="true"
-            android:maxWidth="110dp"
-            android:maxHeight="110dp"
             android:scaleType="fitCenter"
-            android:alpha="1"
             android:layout_row="1"
             android:layout_column="1"
             android:onClick="PlaceCounter"
-            android:layout_marginTop="50dp"
-            android:layout_marginLeft="40dp" />
+            android:tag = "5"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="90dp" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:srcCompat="@drawable/planetrick"
+            android:layout_width="110dp"
+            android:layout_height="110dp"
             android:id="@+id/imageView2"
             android:adjustViewBounds="true"
-            android:maxWidth="110dp"
-            android:maxHeight="110dp"
             android:scaleType="fitCenter"
-            android:alpha="1"
             android:layout_row="0"
             android:layout_column="1"
             android:onClick="PlaceCounter"
-            android:layout_marginBottom="10dp"
-            android:layout_marginLeft="40dp"
-            android:layout_marginRight="20dp"
-            android:layout_marginTop="15dp" />
+            android:tag = "2"
+            android:layout_marginLeft="30dp"
+            android:layout_marginTop="20dp" />
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:id="@+id/imageView7"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:onClick="PlaceCounter"
+            android:tag = "7"
+            android:layout_marginTop="30dp" />
+
+        <ImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:id="@+id/imageView9"
+            android:adjustViewBounds="true"
+            android:scaleType="fitCenter"
+            android:layout_row="2"
+            android:layout_column="2"
+            android:onClick="PlaceCounter"
+            android:tag = "9"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="30dp" />
 
     </GridLayout>
 

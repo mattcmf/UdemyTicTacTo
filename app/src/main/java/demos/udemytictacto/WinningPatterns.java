@@ -2,48 +2,33 @@ package demos.udemytictacto;
 
 import java.util.ArrayList;
 
-public class WinningPatterns {
+class WinningPatterns {
 
-    //TODO: Need to test all winning patterns
+    private static ArrayList<int[]> GetWinningPatterns = new ArrayList<int[]>();
+
+    private static int[] TopRow = {1,2,3};
+    private static int[] MiddleRow = {4,5,6};
+    private static int[] BottomRow = {7,8,9};
+    private static int[] LeftColumn = {1,4,7};
+    private static int[] MiddleColumn = {2,5,8};
+    private static int[] RightColumn = {3,6,9};
+    private static int[] TopLeftToBottomRight = {1,5,9};
+    private static int[] TopRightToBottomLeft = {3,5,7};
+
     //TODO: Need draw logic
 
-    public static ArrayList getTop() {
-        return new ArrayList() {{
-            add(1);
-            add(2);
-            add(3);
-        }};
+    static void Setup() {
+        GetWinningPatterns.add(TopRow);
+        GetWinningPatterns.add(MiddleRow);
+        GetWinningPatterns.add(BottomRow);
+        GetWinningPatterns.add(LeftColumn);
+        GetWinningPatterns.add(MiddleColumn);
+        GetWinningPatterns.add(RightColumn);
+        GetWinningPatterns.add(TopLeftToBottomRight);
+        GetWinningPatterns.add(TopRightToBottomLeft);
     }
 
-    public static ArrayList middle() {
-        return new ArrayList() {{
-            add(4);
-            add(5);
-            add(6);
-        }};
-    }
-
-    public static ArrayList bottom() {
-        return new ArrayList() {{
-            add(7);
-            add(8);
-            add(9);
-        }};
-    }
-
-    public static ArrayList topLeftToBottomRight() {
-        return new ArrayList() {{
-            add(1);
-            add(5);
-            add(9);
-        }};
-    }
-
-    public static ArrayList topRightToBottomLeft() {
-        return new ArrayList() {{
-            add(3);
-            add(5);
-            add(7);
-        }};
+    public static ArrayList<int[]> getGetWinningPatterns(){
+        return GetWinningPatterns;
     }
 }

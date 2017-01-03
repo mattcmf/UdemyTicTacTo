@@ -40,39 +40,45 @@ public class MainActivity extends AppCompatActivity {
         game = new Game();
         game.start();
         playersTurn = "kitten";
-        kitten = new Players();
-        kitten.PlayerName = "kitten";
-        grumpy = new Players();
-        grumpy.PlayerName = "Grumpy";
+        SetupPlayers();
 
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
+    private void SetupPlayers() {
+        kitten = new Players();
+        kitten.PlayerName = "kitten";
+        grumpy = new Players();
+        grumpy.PlayerName = "Grumpy";
+    }
+
     public void ResetGame(View view){
-        kitten.counterPositions =  null;
-        grumpy.counterPositions =  null;
+        kitten =  null;
+        grumpy =  null;
+        game = new Game();
+        SetupPlayers();
         hideRestartView();
         resetCounterPositions();
         gameActive = true;
     }
 
     private void resetCounterPositions() {
-        ArrayList<View> GameGrid = new ArrayList();
+        ArrayList<ImageView> GameGrid = new ArrayList();
 
-        GameGrid.add(findViewById(R.id.imageView));
-        GameGrid.add(findViewById(R.id.imageView2));
-        GameGrid.add(findViewById(R.id.imageView3));
-        GameGrid.add(findViewById(R.id.imageView4));
-        GameGrid.add(findViewById(R.id.imageView5));
-        GameGrid.add(findViewById(R.id.imageView6));
-        GameGrid.add(findViewById(R.id.imageView7));
-        GameGrid.add(findViewById(R.id.imageView8));
-        GameGrid.add(findViewById(R.id.imageView9));
+        GameGrid.add((ImageView) findViewById(R.id.imageView));
+        GameGrid.add((ImageView) findViewById(R.id.imageView2));
+        GameGrid.add((ImageView) findViewById(R.id.imageView3));
+        GameGrid.add((ImageView) findViewById(R.id.imageView4));
+        GameGrid.add((ImageView) findViewById(R.id.imageView5));
+        GameGrid.add((ImageView) findViewById(R.id.imageView6));
+        GameGrid.add((ImageView) findViewById(R.id.imageView7));
+        GameGrid.add((ImageView) findViewById(R.id.imageView8));
+        GameGrid.add((ImageView) findViewById(R.id.imageView9));
 
-        for (View position : GameGrid) {
-            position.setTranslationY(-1200f);
+        for (ImageView position : GameGrid) {
+            position.setImageResource(android.R.color.transparent);
         }
     }
 

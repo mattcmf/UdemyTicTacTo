@@ -14,6 +14,8 @@ import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.appindexing.Thing;
 import com.google.android.gms.common.api.GoogleApiClient;
 
+import java.util.ArrayList;
+
 @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
 public class MainActivity extends AppCompatActivity {
 
@@ -48,7 +50,31 @@ public class MainActivity extends AppCompatActivity {
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
+    public void ResetGame(View view){
+        kitten.counterPositions =  null;
+        grumpy.counterPositions =  null;
+        hideRestartView();
+        resetCounterPositions();
+        gameActive = true;
+    }
 
+    private void resetCounterPositions() {
+        ArrayList<View> GameGrid = new ArrayList();
+
+        GameGrid.add(findViewById(R.id.imageView));
+        GameGrid.add(findViewById(R.id.imageView2));
+        GameGrid.add(findViewById(R.id.imageView3));
+        GameGrid.add(findViewById(R.id.imageView4));
+        GameGrid.add(findViewById(R.id.imageView5));
+        GameGrid.add(findViewById(R.id.imageView6));
+        GameGrid.add(findViewById(R.id.imageView7));
+        GameGrid.add(findViewById(R.id.imageView8));
+        GameGrid.add(findViewById(R.id.imageView9));
+
+        for (View position : GameGrid) {
+            position.setTranslationY(-1200f);
+        }
+    }
 
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void PlaceCounter(View view) {
@@ -56,8 +82,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void DropCounter(ImageView view) {
-
-        //TODO: Need to add flag to check whether game is active
 
         view.setTranslationY(-1200f);
         String currentPlayer = SelectCounter(view);
@@ -80,6 +104,11 @@ public class MainActivity extends AppCompatActivity {
         View view= findViewById(R.id.winningKitty);
         view.setVisibility(View.VISIBLE);
         view.bringToFront();
+    }
+
+    private void hideRestartView() {
+        View view= findViewById(R.id.winningKitty);
+        view.setVisibility(View.INVISIBLE);
     }
 
     private void ChangePlayerTurn() {

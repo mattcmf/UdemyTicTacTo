@@ -38,7 +38,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:id="@+id/button"
-            android:gravity="bottom|center_horizontal" />
+            android:gravity="bottom|center_horizontal"
+            android:onClick="ResetGame" />
     </LinearLayout>
 
     <GridLayout
@@ -51,8 +52,8 @@
         android:columnCount="3"
         android:rowCount="3"
         android:background="@drawable/grid"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <ImageView
             android:layout_width="110dp"

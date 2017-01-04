@@ -1,28 +1,64 @@
 package demos.udemytictacto;
 
+import android.app.Activity;
+import android.view.View;
+
 import java.util.ArrayList;
 
 /**
  * Created by matthewframpton on 28/12/2016.
  */
-public class Game {
+public class Game extends MainActivity {
 
-    private String playersTurn;
+    public Activity activity;
 
-    public void start() {
-        playersTurn = "grumpyCat";
+    public Game( Activity _activity){
+        this.activity = _activity;
     }
 
-    //TODO: Need to add linear layout, button and text label to restart game
-    //TODO: Need to set visibility from invisibile to visible
-    //TODO: Loop through all images and set position back to blah blah
+
+    public String playersTurn;
+    boolean GameActive = true;
+
+    public void start() {
+        GameActive = true;
+        playersTurn = "grumpyCat";
+        //setGameGrid();
+    }
+
     String CheckForWinner(Players player) {
         for (ArrayList<Integer> pattern : WinningPatterns.getGetWinningPatterns()){
             if (player.counterPositions.containsAll(pattern)){
+                this.GameActive = false;
                 return player.PlayerName.toUpperCase() + " has won the game!";
             }
     }
         return "";
+    }
+
+    public boolean getGameState() {
+        return this.GameActive;
+    }
+
+    public void setGameActive(boolean state) {
+        this.GameActive = state;
+    }
+
+    void hideRestartView() {
+        View view= this.activity.findViewById(R.id.winningKitty);
+        view.setVisibility(View.INVISIBLE);
+    }
+
+    void ChangePlayerTurn() {
+        if (playersTurn == "grumpyCat") {
+            playersTurn = "kitten";
+        } else {
+            playersTurn = "grumpyCat";
+        }
+    }
+
+    public void setGameState(boolean state) {
+        this.GameActive = state;
     }
 }
 

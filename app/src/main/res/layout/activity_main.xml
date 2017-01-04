@@ -11,6 +11,37 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="demos.udemytictacto.MainActivity">
 
+    <LinearLayout
+        android:id="@+id/winningKitty"
+        android:orientation="vertical"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center|bottom"
+        android:background="@drawable/trophy"
+        android:visibility="invisible" >
+
+        <TextView
+            android:text="WINNER!"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="50sp"
+            android:gravity="center"
+            android:id="@+id/textViewGameResult"
+            android:layout_weight="0" />
+
+        <Button
+            android:text="Play again"
+            android:layout_weight="0"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:id="@+id/button"
+            android:gravity="bottom|center_horizontal"
+            android:onClick="ResetGame" />
+    </LinearLayout>
+
     <GridLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
@@ -18,11 +49,11 @@
         android:layout_gravity="fill_horizontal"
         android:columnWidth="100dp"
         android:gravity="center_horizontal"
-    android:columnCount="3"
+        android:columnCount="3"
         android:rowCount="3"
         android:background="@drawable/grid"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true">
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true">
 
         <ImageView
             android:layout_width="110dp"

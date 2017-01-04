@@ -15,8 +15,6 @@ class WinningPatterns {
     private static  ArrayList<Integer> TopLeftToBottomRight = new ArrayList<Integer>() {{add(1); add(5); add(9); }};
     private static  ArrayList<Integer> TopRightToBottomLeft = new ArrayList<Integer>() {{add(3); add(5); add(7); }};
 
-    //TODO: Need draw logic
-
     static void Setup() {
         GetWinningPatterns.add(TopRow);
         GetWinningPatterns.add(MiddleRow);

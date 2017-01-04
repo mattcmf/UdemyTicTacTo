@@ -21,11 +21,8 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     Game game;
-    String playersTurn;
     Players kitten;
     Players grumpy;
-    boolean gameActive;
-
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
      * See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -36,37 +33,17 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        gameActive = true;
         WinningPatterns.Setup();
-        game = new Game();
-        setGameGrid();
+        game = new Game(this);
         game.start();
-        playersTurn = "kitten";
         SetupPlayers();
-
+        setGameGrid();
         // ATTENTION: This was auto-generated to implement the App Indexing API.
         // See https://g.co/AppIndexing/AndroidStudio for more information.
         client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
     }
 
-    private void SetupPlayers() {
-        kitten = new Players();
-        kitten.PlayerName = "kitten";
-        grumpy = new Players();
-        grumpy.PlayerName = "Grumpy";
-    }
-
-    public void ResetGame(View view){
-        kitten =  null;
-        grumpy =  null;
-        game = new Game();
-        SetupPlayers();
-        hideRestartView();
-        setGameGrid();
-        gameActive = true;
-    }
-
-    private void setGameGrid() {
+    void setGameGrid() {
         ArrayList<ImageView> GameGrid = new ArrayList();
 
         GameGrid.add((ImageView) findViewById(R.id.imageView));
@@ -84,9 +61,26 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private void SetupPlayers() {
+        kitten = new Players();
+        kitten.PlayerName = "kitten";
+        grumpy = new Players();
+        grumpy.PlayerName = "Grumpy";
+    }
+
+    public void ResetGame(View view){
+        kitten =  null;
+        grumpy =  null;
+        game = new Game(this);
+        SetupPlayers();
+        game.hideRestartView();
+        setGameGrid();
+        game.setGameState(true);
+    }
+
     @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     public void PlaceCounter(View view) {
-        if (gameActive) DropCounter((ImageView) view);
+        if (game.getGameState()) DropCounter((ImageView) view);
     }
 
     private void DropCounter(ImageView view) {
@@ -95,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
         view.animate().translationYBy(1200f).setDuration(500);
         int counterPos =Integer.parseInt(String.valueOf(view.getTag()));
         RecordPlayerCounterPos(counterPos, currentPlayer);
-        ChangePlayerTurn();
+        game.ChangePlayerTurn();
         String kittenStats = game.CheckForWinner(kitten);
         String grumpyStats = game.CheckForWinner(grumpy);
 
@@ -103,35 +97,14 @@ public class MainActivity extends AppCompatActivity {
         if (grumpyStats != "")  Toast.makeText(getApplicationContext(), grumpyStats, Toast.LENGTH_SHORT).show();
         CheckForDraw();
 
-        gameActive = game.getGameActive();
-
-        if (!gameActive) showRestartView();
-    }
-
-    private void showRestartView() {
-        View view= findViewById(R.id.winningKitty);
-        view.setVisibility(View.VISIBLE);
-        view.bringToFront();
+        if (!game.getGameState()) showRestartView();
     }
 
     public void CheckForDraw(){
         if (kitten.counterPositions.size() + grumpy.counterPositions.size() == 9){
             TextView gameResult = (TextView) findViewById(R.id.textViewGameResult);
             gameResult.setText("Draw");
-            if (!gameActive) showRestartView();
-        }
-    }
-
-    private void hideRestartView() {
-        View view= findViewById(R.id.winningKitty);
-        view.setVisibility(View.INVISIBLE);
-    }
-
-    private void ChangePlayerTurn() {
-        if (playersTurn == "grumpyCat") {
-            playersTurn = "kitten";
-        } else {
-            playersTurn = "grumpyCat";
+            if (!game.getGameState()) showRestartView();
         }
     }
 
@@ -144,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private String SelectCounter(ImageView view){
-        if (playersTurn == "grumpyCat") {
+        if (game.playersTurn == "grumpyCat") {
             view.setImageDrawable(getResources().getDrawable(R.drawable.grumpycat, getApplicationContext().getTheme()));
             return "grumpyCat";
         } else {
@@ -152,7 +125,6 @@ public class MainActivity extends AppCompatActivity {
             return "kitten";
         }
     }
-
 
     /**
      * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -169,7 +141,11 @@ public class MainActivity extends AppCompatActivity {
                 .build();
     }
 
-
+    void showRestartView() {
+        View view= findViewById(R.id.winningKitty);
+        view.setVisibility(View.VISIBLE);
+        view.bringToFront();
+    }
 
     @Override
     public void onStart() {

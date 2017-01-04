@@ -1,17 +1,29 @@
 package demos.udemytictacto;
 
+import android.app.Activity;
+import android.view.View;
+
 import java.util.ArrayList;
 
 /**
  * Created by matthewframpton on 28/12/2016.
  */
-public class Game {
+public class Game extends MainActivity {
 
-    private String playersTurn;
-    private boolean GameActive = true;
+    public Activity activity;
+
+    public Game( Activity _activity){
+        this.activity = _activity;
+    }
+
+
+    public String playersTurn;
+    boolean GameActive = true;
 
     public void start() {
+        GameActive = true;
         playersTurn = "grumpyCat";
+        //setGameGrid();
     }
 
     String CheckForWinner(Players player) {
@@ -24,9 +36,29 @@ public class Game {
         return "";
     }
 
-    public boolean getGameActive(){
+    public boolean getGameState() {
         return this.GameActive;
     }
 
+    public void setGameActive(boolean state) {
+        this.GameActive = state;
+    }
+
+    void hideRestartView() {
+        View view= this.activity.findViewById(R.id.winningKitty);
+        view.setVisibility(View.INVISIBLE);
+    }
+
+    void ChangePlayerTurn() {
+        if (playersTurn == "grumpyCat") {
+            playersTurn = "kitten";
+        } else {
+            playersTurn = "grumpyCat";
+        }
+    }
+
+    public void setGameState(boolean state) {
+        this.GameActive = state;
+    }
 }
 

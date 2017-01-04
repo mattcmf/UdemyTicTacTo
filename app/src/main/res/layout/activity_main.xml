@@ -28,7 +28,7 @@
             android:layout_height="wrap_content"
             android:textSize="50sp"
             android:gravity="center"
-            android:id="@+id/textViewWinner"
+            android:id="@+id/textViewGameResult"
             android:layout_weight="0" />
 
         <Button

@@ -7,6 +7,7 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
@@ -38,6 +39,7 @@ public class MainActivity extends AppCompatActivity {
         gameActive = true;
         WinningPatterns.Setup();
         game = new Game();
+        setGameGrid();
         game.start();
         playersTurn = "kitten";
         SetupPlayers();
@@ -60,11 +62,11 @@ public class MainActivity extends AppCompatActivity {
         game = new Game();
         SetupPlayers();
         hideRestartView();
-        resetCounterPositions();
+        setGameGrid();
         gameActive = true;
     }
 
-    private void resetCounterPositions() {
+    private void setGameGrid() {
         ArrayList<ImageView> GameGrid = new ArrayList();
 
         GameGrid.add((ImageView) findViewById(R.id.imageView));
@@ -88,7 +90,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void DropCounter(ImageView view) {
-
         view.setTranslationY(-1200f);
         String currentPlayer = SelectCounter(view);
         view.animate().translationYBy(1200f).setDuration(500);
@@ -100,6 +101,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (kittenStats != "")  Toast.makeText(getApplicationContext(), kittenStats, Toast.LENGTH_SHORT).show();
         if (grumpyStats != "")  Toast.makeText(getApplicationContext(), grumpyStats, Toast.LENGTH_SHORT).show();
+        CheckForDraw();
 
         gameActive = game.getGameActive();
 
@@ -110,6 +112,14 @@ public class MainActivity extends AppCompatActivity {
         View view= findViewById(R.id.winningKitty);
         view.setVisibility(View.VISIBLE);
         view.bringToFront();
+    }
+
+    public void CheckForDraw(){
+        if (kitten.counterPositions.size() + grumpy.counterPositions.size() == 9){
+            TextView gameResult = (TextView) findViewById(R.id.textViewGameResult);
+            gameResult.setText("Draw");
+            if (!gameActive) showRestartView();
+        }
     }
 
     private void hideRestartView() {

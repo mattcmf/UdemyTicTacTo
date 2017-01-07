@@ -69,7 +69,7 @@ public class Game extends MainActivity {
             TextView gameResult = (TextView) this.activity.findViewById(R.id.textViewGameResult);
             gameResult.setText("Draw");
             //TODO: Not currently working when calling external view
-            //showRestartView();
+            showRestartView();
         }
     }
 }

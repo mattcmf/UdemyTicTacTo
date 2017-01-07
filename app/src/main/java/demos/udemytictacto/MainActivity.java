@@ -7,8 +7,6 @@ import android.support.annotation.RequiresApi;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -85,44 +83,26 @@ public class MainActivity extends AppCompatActivity {
 
     private void DropCounter(ImageView view) {
         view.setTranslationY(-1200f);
-        String currentPlayer = SelectCounter(view);
-        view.animate().translationYBy(1200f).setDuration(500);
         int counterPos =Integer.parseInt(String.valueOf(view.getTag()));
-        RecordPlayerCounterPos(counterPos, currentPlayer);
+        SelectCounter(view, counterPos);
+        view.animate().translationYBy(1200f).setDuration(500);
         game.ChangePlayerTurn();
-        String kittenStats = game.CheckForWinner(kitten);
-        String grumpyStats = game.CheckForWinner(grumpy);
+        game.CheckForWinner(kitten);
+        game.CheckForWinner(grumpy);
+        game.CheckForDraw(kitten, grumpy );
 
-        if (kittenStats != "")  Toast.makeText(getApplicationContext(), kittenStats, Toast.LENGTH_SHORT).show();
-        if (grumpyStats != "")  Toast.makeText(getApplicationContext(), grumpyStats, Toast.LENGTH_SHORT).show();
-        CheckForDraw();
-
-        if (!game.getGameState()) showRestartView();
-    }
-
-    public void CheckForDraw(){
-        if (kitten.counterPositions.size() + grumpy.counterPositions.size() == 9){
-            TextView gameResult = (TextView) findViewById(R.id.textViewGameResult);
-            gameResult.setText("Draw");
-            if (!game.getGameState()) showRestartView();
+        if (!game.getGameState()) {
+            showRestartView();
         }
     }
 
-    private void RecordPlayerCounterPos(int counterPos, String currentPlayer) {
-        if (currentPlayer == "grumpyCat") {
-            grumpy.counterPositions.add(counterPos);
-        } else {
-            kitten.counterPositions.add(counterPos);
-        }
-    }
-
-    private String SelectCounter(ImageView view){
+    private void SelectCounter(ImageView view, int counterPos){
         if (game.playersTurn == "grumpyCat") {
             view.setImageDrawable(getResources().getDrawable(R.drawable.grumpycat, getApplicationContext().getTheme()));
-            return "grumpyCat";
+            grumpy.RecordPlayerCounterPos(counterPos);
         } else {
             view.setImageDrawable(getResources().getDrawable(R.drawable.kitten, getApplicationContext().getTheme()));
-            return "kitten";
+            kitten.RecordPlayerCounterPos(counterPos);
         }
     }
 

@@ -1,7 +1,10 @@
 package demos.udemytictacto;
 
 import android.app.Activity;
+import android.os.Build;
+import android.support.annotation.RequiresApi;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 
@@ -15,7 +18,6 @@ public class Game extends MainActivity {
     public Game( Activity _activity){
         this.activity = _activity;
     }
-
 
     public String playersTurn;
     boolean GameActive = true;
@@ -59,6 +61,16 @@ public class Game extends MainActivity {
 
     public void setGameState(boolean state) {
         this.GameActive = state;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    public void CheckForDraw(Players kitten, Players grumpy) {
+        if (kitten.counterPositions.size() + grumpy.counterPositions.size() == 9){
+            TextView gameResult = (TextView) this.activity.findViewById(R.id.textViewGameResult);
+            gameResult.setText("Draw");
+            //TODO: Not currently working when calling external view
+            //showRestartView();
+        }
     }
 }
 

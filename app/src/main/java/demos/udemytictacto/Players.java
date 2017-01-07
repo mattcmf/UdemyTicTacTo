@@ -11,5 +11,10 @@ import java.util.ArrayList;
 public class Players  extends AppCompatActivity {
     ArrayList<Integer> counterPositions = new ArrayList();
     String PlayerName = "";
+
+    public void RecordPlayerCounterPos(int counterPos) {
+        this.counterPositions.add(counterPos);
+    }
 }
+
 
